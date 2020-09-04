@@ -21,4 +21,14 @@ You can start a weather station with the following command:
 
 * `--city=<CITY>` is the name of the city where the weather station is.
 * `--sorted` is a flag to indicate if the messages should have timestamps in chronological order.
-If not provided, messages will not be sent in chronological order. 
+If not provided, messages will not be sent in chronological order.
+
+
+##### Dependencies
+
+While the application will run just fine without a Kafka topic, it will not actually do what it was intended to.  
+By default, the application will expect to find a Kafka server at address `localhost:9092`.  
+The server address is configurable by means of environment variable `KAFKA_ENDPOINT`. 
+
+Don't worry if you don't have the Kafka server ready when you start the application.
+It will pick one up if you start it later, but old messages that were supposed to be sent will be lost.
