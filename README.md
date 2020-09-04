@@ -28,7 +28,7 @@ If not provided, messages will not be sent in chronological order.
 
 While the application will run just fine without a Kafka topic, it will not actually do what it was intended to.  
 By default, the application will expect to find a Kafka server at address `localhost:9092`.  
-The server address is configurable by means of environment variable `KAFKA_ENDPOINT`. 
+The server address is configurable by means of environment variable `KAFKA_BOOTSTRAP_SERVERS`. 
 
 Don't worry if you don't have the Kafka server ready when you start the application.
 It will pick one up if you start it later, but old messages that were supposed to be sent will have been lost.
