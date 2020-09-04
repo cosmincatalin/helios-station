@@ -31,4 +31,4 @@ By default, the application will expect to find a Kafka server at address `local
 The server address is configurable by means of environment variable `KAFKA_ENDPOINT`. 
 
 Don't worry if you don't have the Kafka server ready when you start the application.
-It will pick one up if you start it later, but old messages that were supposed to be sent will be lost.
+It will pick one up if you start it later, but old messages that were supposed to be sent will have been lost.
