@@ -30,7 +30,7 @@ public class RecordBuilder {
         var hasFahrenheit = (_random.nextInt(4) == 0);
 
         var output1 = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<data>\n\t</city>";
-        var output2 = "</city>\n\t<temperature>\n\t";
+        var output2 = "<city>\n\t<temperature>\n\t";
         var output3 = "</temperature>\n\t<measured_at_ts>";
         var output4 = "</measured_at_ts>\n</data>";
         if (messXml) {
