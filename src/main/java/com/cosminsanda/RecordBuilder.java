@@ -7,21 +7,21 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class RecordBuilder {
 
-    private final String _city;
-    private final boolean _sorted;
-    private Date _lastTimestamp = null;
+    private final String city;
+    private final boolean sorted;
+    private Date lastTimestamp = null;
     private final Random _random = new Random();
 
     public RecordBuilder(String city, boolean sorted) {
-        _city = city;
-        _sorted = sorted;
+        this.city = city;
+        this.sorted = sorted;
     }
 
     public String getRecord() {
-        if (!_sorted || _lastTimestamp == null) {
-            _lastTimestamp = new Date(ThreadLocalRandom.current().nextLong(System.currentTimeMillis()));
+        if (!sorted || lastTimestamp == null) {
+            lastTimestamp = new Date(ThreadLocalRandom.current().nextLong(System.currentTimeMillis()));
         } else {
-            _lastTimestamp = new Date(ThreadLocalRandom.current().nextLong(_lastTimestamp.getTime(), System.currentTimeMillis()));
+            lastTimestamp = new Date(ThreadLocalRandom.current().nextLong(lastTimestamp.getTime(), System.currentTimeMillis()));
         }
 
         var messXml = (_random.nextInt(8) == 0);
@@ -40,7 +40,7 @@ public class RecordBuilder {
             output4 = Util.messXml(output4, _random);
 
         }
-        output1 += Util.randomUpper(_city, .3);
+        output1 += Util.randomUpper(city, .3);
 
         if (hasCelsius || hasFahrenheit) {
             var temperaturesCelsius = ThreadLocalRandom.current().nextDouble(-50.0, +50.0);
@@ -65,7 +65,7 @@ public class RecordBuilder {
         }
 
         var formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss");
-        output3 += formatter.format(_lastTimestamp);
+        output3 += formatter.format(lastTimestamp);
         if (messValues) {
             output3 += "asdasda";
         }
