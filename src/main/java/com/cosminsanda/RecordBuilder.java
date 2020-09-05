@@ -27,7 +27,7 @@ public class RecordBuilder {
         var messXml = (_random.nextInt(8) == 0);
         var messValues = (_random.nextInt(10) == 0);
         var hasCelsius = (_random.nextInt(2) == 0);
-        var hasFahrenheit = (_random.nextInt(4) == 0);
+        var hasFahrenheit = (_random.nextInt(2) == 0);
 
         var output1 = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<data>\n\t<city>";
         var output2 = "</city>\n\t<temperature>\n\t";
