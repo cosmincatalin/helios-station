@@ -64,7 +64,7 @@ public class RecordBuilder {
             }
         }
 
-        var formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss");
+        var formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         output3 += formatter.format(lastTimestamp);
         if (messValues) {
             output3 += "asdasda";
