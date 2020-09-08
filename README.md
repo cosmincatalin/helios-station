@@ -4,9 +4,9 @@ This project can be used to publish `xml` messages from a fictional `station` re
 
 ## How to use it
 
-#### Compiling
+#### Building
 
-First you need to compile the project so that you end up with the application artifact.
+First you need to build the project so that you end up with the application artifact.
 
 `docker run -it --rm -v "$(pwd)":/app -w /app maven:3.6.3-jdk-14 mvn clean package`
 
