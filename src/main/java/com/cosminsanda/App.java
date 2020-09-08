@@ -15,7 +15,7 @@ public class App {
         var arguments = new Arguments(args);
 
         var city = arguments.get("city");
-        var sorted = arguments.isSet("sorted");
+        var notSorted = arguments.isSet("not-sorted");
 
         var props = Util.toProperties(conf.getConfig("kafka.producer"));
 
@@ -24,7 +24,7 @@ public class App {
         var kafkaProducer = new KafkaProducer<>(props);
         runtime.addShutdownHook(new ShutdownHook<>(kafkaProducer));
 
-        var recordBuilder = new RecordBuilder(city, sorted);
+        var recordBuilder = new RecordBuilder(city, notSorted);
 
         while (true) {
             logger.info("Publishing...");

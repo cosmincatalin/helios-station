@@ -8,17 +8,17 @@ import java.util.concurrent.ThreadLocalRandom;
 public class RecordBuilder {
 
     private final String city;
-    private final boolean sorted;
+    private final boolean notSorted;
     private Date lastTimestamp = null;
     private final Random _random = new Random();
 
-    public RecordBuilder(String city, boolean sorted) {
+    public RecordBuilder(String city, boolean notSorted) {
         this.city = city;
-        this.sorted = sorted;
+        this.notSorted = notSorted;
     }
 
     public String getRecord() {
-        if (!sorted || lastTimestamp == null) {
+        if (notSorted || lastTimestamp == null) {
             lastTimestamp = new Date(ThreadLocalRandom.current().nextLong(System.currentTimeMillis()));
         } else {
             lastTimestamp = new Date(ThreadLocalRandom.current().nextLong(lastTimestamp.getTime(), System.currentTimeMillis()));

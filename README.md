@@ -20,8 +20,8 @@ You can start a weather station with the following command:
 ##### Arguments
 
 * `--city <CITY>` is the name of the city where the weather station is.
-* `--sorted` is a flag to indicate if the messages should have timestamps in chronological order.
-If not provided, messages will not be sent in chronological order.
+* `--not-sorted` is a flag to indicate if the messages should have timestamps in chronological order or not.
+If provided, messages will not be sent in chronological order.
 
 
 ##### Dependencies
