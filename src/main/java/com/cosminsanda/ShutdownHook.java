@@ -1,21 +1,20 @@
 package com.cosminsanda;
 
+import lombok.extern.log4j.Log4j2;
 import org.apache.kafka.clients.producer.Producer;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
+@Log4j2
 class ShutdownHook<K, V> extends Thread {
 
     private final Producer<K, V> kafkaProducer;
-    private final Logger logger = LogManager.getLogger(ShutdownHook.class);
 
     public ShutdownHook(Producer<K, V> kafkaProducer) {
         this.kafkaProducer = kafkaProducer;
-        logger.info("Set-up kill switch.");
+        log.info("Set-up kill switch.");
     }
 
     public void run() {
-        logger.info("Kafka producer closed.");
+        log.info("Kafka producer closed.");
         kafkaProducer.close();
     }
 

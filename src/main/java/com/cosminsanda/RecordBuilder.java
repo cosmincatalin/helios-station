@@ -1,21 +1,20 @@
 package com.cosminsanda;
 
+import lombok.RequiredArgsConstructor;
+import lombok.val;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
+@RequiredArgsConstructor
 public class RecordBuilder {
 
     private final String city;
     private final boolean notSorted;
     private Date lastTimestamp = null;
     private final Random _random = new Random();
-
-    public RecordBuilder(String city, boolean notSorted) {
-        this.city = city;
-        this.notSorted = notSorted;
-    }
 
     public String getRecord() {
         if (notSorted || lastTimestamp == null) {
@@ -24,10 +23,10 @@ public class RecordBuilder {
             lastTimestamp = new Date(ThreadLocalRandom.current().nextLong(lastTimestamp.getTime(), System.currentTimeMillis()));
         }
 
-        var messXml = (_random.nextDouble() < .2);
-        var messValues = (_random.nextDouble() < .2);
-        var hasCelsius = (_random.nextDouble() < .75);
-        var hasFahrenheit = (_random.nextDouble() < .75);
+        val messXml = (_random.nextDouble() < .2);
+        val messValues = (_random.nextDouble() < .2);
+        val hasCelsius = (_random.nextDouble() < .75);
+        val hasFahrenheit = (_random.nextDouble() < .75);
 
         var output1 = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<data>\n\t<city>";
         var output2 = "</city>\n\t<temperature>\n\t";
@@ -43,7 +42,7 @@ public class RecordBuilder {
         output1 += Util.randomUpper(city, .3);
 
         if (hasCelsius || hasFahrenheit) {
-            var temperaturesCelsius = ThreadLocalRandom.current().nextDouble(-50.0, +50.0);
+            val temperaturesCelsius = ThreadLocalRandom.current().nextDouble(-50.0, +50.0);
             var temperaturesFahrenheit = temperaturesCelsius * 1.8 + 32;
             if (messValues) {
                 temperaturesFahrenheit += 5;
@@ -64,10 +63,10 @@ public class RecordBuilder {
             }
         }
 
-        var formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        val formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         output3 += formatter.format(lastTimestamp);
         if (messValues) {
-            output3 += "asdasda";
+            output3 += "mess";
         }
 
         return output1 + output2 + output3 + output4;
