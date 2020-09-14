@@ -1,6 +1,7 @@
 # Helios Station
 
-This project can be used to publish `xml` messages from a fictional `station` referenced by a provided `city`.
+This project can be used to publish `xml` messages from a fictional `station` referenced by a provided `city`.  
+It was designed to support the **Helios** project (https://github.com/cosmincatalin/helios - private repo).
 
 ## How to use it
 
